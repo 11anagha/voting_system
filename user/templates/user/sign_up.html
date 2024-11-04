@@ -5,8 +5,17 @@
   <form method="POST">
     {% csrf_token %}
     <h1 class="mb-4">Sign Up</h1>
+    {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>{{message}}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      {% endfor %}
+    {% endif %}
     {{form|crispy}}
     <button class="btn btn-success mt-2" type="submit">Submit</button>
+    <h6 class="mt-2" style="text-align: center;">Already have an account? <a href="{% url 'sign_in' %}" style="text-decoration: none;">Sign In</a></h6>
   </form>
 </div>
 {% endblock content %}

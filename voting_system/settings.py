@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'user',
+    'election',
     'crispy_forms',
     'crispy_bootstrap4',
 ]
@@ -131,4 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = "sign_in"
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "election_home"

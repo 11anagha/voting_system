@@ -1,0 +1,14 @@
+{% extends 'election/base.html' %}
+{% block content %}
+<h1 class="mb-4">Voting System</h1>
+{% for election in elections %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{election.title}}</h5>
+      <p class="card-text">{{election.description}}</p>
+      <p>Start date: {{election.start_date}}, End date: {{election.end_date}}</p>
+      <a href="{% url 'candidates' %}" class="btn btn-primary">More info</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

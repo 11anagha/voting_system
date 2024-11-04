@@ -7,10 +7,16 @@ def sign_up(request):
         form = forms.SignUpForm(request.POST)
         
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect("sign_in")    
+            age = form.cleaned_data.get("age")
+            
+            if age <= 18:
+                messages.error(request, "You must be at least 18 years old to be eligible to vote.")
+                return redirect("sign_up")
+            else:
+                form.save()
+                username = form.cleaned_data.get('username')
+                messages.success(request, f'Account created for {username}!')
+                return redirect("sign_in")    
     else:
         form = forms.SignUpForm()
 

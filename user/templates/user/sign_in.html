@@ -15,6 +15,7 @@
     {% endif %}
     {{form|crispy}}
     <button class="btn btn-success mt-2" type="submit">Submit</button>
+    <h6 class="mt-2" style="text-align: center;">Don't have an account? <a href="{% url 'sign_up' %}" style="text-decoration: none;">Sign Up</a></h6>
   </form>
 </div>
 {% endblock content %}
