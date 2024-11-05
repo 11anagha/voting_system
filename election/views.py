@@ -15,12 +15,19 @@ def home(request):
 
 
 @login_required
-def candidates(request):  
-    candidates = models.Candidate.objects.all()
+def candidates(request):
+    user = request.user
 
-    context = {
-        "candidates": candidates
-    }
+    if models.Vote.objects.filter(voter=user).exists():
+        messages.info(request, "You already casted vote for this election")
+        return redirect("election_home")
+    else:
+        candidates = models.Candidate.objects.all()
+
+        context = {
+            "candidates": candidates
+        }
+
     return render(request, "election/candidate.html", context)
 
 

@@ -8,6 +8,14 @@
       <p class="card-text">{{election.description}}</p>
       <p>Start date: {{election.start_date}}, End date: {{election.end_date}}</p>
       <a href="{% url 'candidates' %}" class="btn btn-primary">More info</a>
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show mt-2" role="alert">
+          <strong>{{message}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+      {% endif %}
     </div>
 </div>
 {% endfor %}
