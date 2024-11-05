@@ -1,21 +1,42 @@
 {% extends 'user/base.html' %}
 {% block content %} 
 {% load crispy_forms_tags %}
-<div class="sign-up-form">
   <form method="POST">
     {% csrf_token %}
     <h1 class="mb-4">Sign Up</h1>
-    {% if messages %}
-      {% for message in messages %}
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <strong>{{message}}</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-      {% endfor %}
-    {% endif %}
-    {{form|crispy}}
-    <button class="btn btn-success mt-2" type="submit">Submit</button>
-    <h6 class="mt-2" style="text-align: center;">Already have an account? <a href="{% url 'sign_in' %}" style="text-decoration: none;">Sign In</a></h6>
+    <div class="sign-up-form">
+      {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+      {% endif %}
+      <div class="row mb-2">
+        <div class="col-md-4">
+          {{form.username|as_crispy_field}}
+        </div>
+        <div class="col-md-4">
+          {{form.full_name|as_crispy_field}}
+        </div>
+        <div class="col-md-4">
+          {{form.address|as_crispy_field}}
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          {{form.age|as_crispy_field}}
+        </div>
+        <div class="col-md-6">
+          {{form.voterId|as_crispy_field}}
+        </div>
+      </div>
+      {{form.password1|as_crispy_field}}
+      {{form.password2|as_crispy_field}}
+      <button class="btn btn-success mt-2" type="submit">Submit</button>
+      <h6 class="mt-2" style="text-align: center;">Already have an account? <a href="{% url 'sign_in' %}" style="text-decoration: none;">Sign In</a></h6>
+    </div>
   </form>
-</div>
+
 {% endblock content %}

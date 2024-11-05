@@ -1,5 +1,29 @@
+body{
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: white;
+}
+
+html, body {
+    height: 100%;            
+    margin: 0;       
+}
+
 .vote-form{
     border: outset;
-    padding: 40px;
+    background-color: white;
+    color: black;
+    padding: 20px;
     margin-top: 40px;
 }
+
+
+
+table {
+    border-radius: 20px;
+    overflow: hidden;
+}
+  
+

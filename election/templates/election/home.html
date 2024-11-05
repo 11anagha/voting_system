@@ -1,8 +1,8 @@
 {% extends 'election/base.html' %}
 {% block content %}
-<h1 class="mb-4">Voting System</h1>
 {% for election in elections %}
-<div class="card">
+<h2 style="text-align: center;">Elections</h2>
+<div class="card mt-4">
     <div class="card-body">
       <h5 class="card-title">{{election.title}}</h5>
       <p class="card-text">{{election.description}}</p>

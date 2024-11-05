@@ -10,7 +10,6 @@ class Election(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def is_active(self):
-        # Check if the election is currently active
         now = timezone.now()
         return self.start_date <= now <= self.end_date
 

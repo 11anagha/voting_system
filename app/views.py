@@ -1,7 +1,0 @@
-from django.shortcuts import render
-from django import views
-from django.contrib.auth.decorators import login_required
-
-@login_required
-def home(request):
-    return render(request, "app/home.html")

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . import forms
 from django.contrib import messages
+from django.contrib.auth import logout
 
 def sign_up(request):
     if request.method == "POST":
@@ -22,3 +23,8 @@ def sign_up(request):
 
     return render(request, "user/sign_up.html", {"form": form})
 
+
+
+def sign_out(request):
+    logout(request)
+    return render(request, "user/sign_out.html")

@@ -7,10 +7,7 @@ class SignUpForm(UserCreationForm):
     age = forms.IntegerField()
     address = forms.CharField(max_length=100)
     voterId = forms.CharField(max_length=50)
-
+    
     class Meta:
         model = User
         fields = ["username", "full_name", "address", "age", "voterId", "password1", "password2"]
-
-
-        

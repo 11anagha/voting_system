@@ -14,6 +14,16 @@
     <link rel="stylesheet" href="{% static 'election/style.css' %}">
   </head>
   <body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark"">
+      <div class="container">
+        <h3>Voting System</h3>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'sign_out' %}">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="container mt-4">{% block content %} {% endblock %}</div>
 
     <script

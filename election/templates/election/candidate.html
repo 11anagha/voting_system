@@ -1,17 +1,22 @@
 {% extends 'election/base.html' %}
 {% block content %}
 <h1>Cast your Vote</h1>
-<div class="row mt-4">
+<table class="table mt-5">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Candidate Name</th>
+            <th scope="col">Party</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
     {% for candidate in candidates %}
-        <div class="col-sm-4 mb-4 mb-sm-0">
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h5 class="card-title">{{ candidate.name }}</h5>
-                    <p class="card-text">{{ candidate.party }}</p>
-                    <a href="{% url 'vote' candidate.id %}" class="btn btn-success">Cast Vote</a>
-                </div>
-            </div>
-        </div>
+    <tbody>
+        <tr>
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.party }}</td>
+            <td><a href="{% url 'vote' candidate.id %}" class="btn btn-success">Cast Vote</a></td>
+        </tr>
+    </tbody>
     {% endfor %}
-</div>
+</table>    
 {% endblock content %}
