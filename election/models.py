@@ -22,6 +22,7 @@ class Candidate(models.Model):
     election = models.ForeignKey(Election, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     party = models.CharField(max_length=255, blank=True)
+    vote_count = models.PositiveIntegerField(default=0)
 
 
     def __str__(self):

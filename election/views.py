@@ -43,9 +43,11 @@ def vote(request, pk):
 
     if request.method == "POST":
         voter = request.user
-        candidate = models.Candidate.objects.get(id=pk)
 
         models.Vote.objects.create(voter=voter, election=candidate.election, candidate=candidate)
+        candidate.vote_count += 1
+        candidate.save()
+
         messages.success(request, f"You voted for {candidate}")
         return redirect("election_home")
 
