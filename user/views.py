@@ -16,8 +16,14 @@ def sign_up(request):
             else:
                 form.save()
                 username = form.cleaned_data.get('username')
-                messages.success(request, f'Account created for {username}!')
-                return redirect("sign_in")    
+                voterId = form.cleaned_data.get("voterId")
+
+                if len(voterId) < 10:
+                    messages.info(request, "Invalid voter id. Please enter a valid voter id")
+                    return redirect("sign_up")
+                else:
+                    messages.success(request, f'Account created for {username}!')
+                    return redirect("sign_in")    
     else:
         form = forms.SignUpForm()
 
